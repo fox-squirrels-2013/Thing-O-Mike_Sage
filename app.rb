@@ -1,11 +1,27 @@
 require 'sinatra'
 require 'active_record'
+require 'shotgun'
 ActiveRecord::Base.establish_connection(adapter: 'postgresql',
                             database: 'beer')
 require_relative './app/models/beer'
 
 get '/' do 
   "beers are awesome"
+end
+
+get '/create' do
+  erb :create
+end
+
+post '/create' do
+  p params
+  params[:create]
+  b = Beer.new
+  b.name = params[:name]
+  b.type = params[:type]
+  b.save
+  redirect '/create'
+
 end
 
 # get '/about' do
