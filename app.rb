@@ -2,7 +2,7 @@ require 'sinatra'
 require 'active_record'
 require 'shotgun'
 ActiveRecord::Base.establish_connection(adapter: 'postgresql',
-                            database: 'beer')
+                            database: 'bestbeerwith')
 require_relative './app/models/beer'
 
 get '/' do 
@@ -15,7 +15,6 @@ end
 
 post '/create' do
   p params
-  params[:create]
   b = Beer.new
   b.name = params[:name]
   b.type = params[:type]

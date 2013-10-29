@@ -4,15 +4,15 @@ require './app'
 namespace :db do
   desc "create the postgres database"
   task :create do
-    `createdb beer`
+    `createdb bestbeerwith`
   end
 
   desc "drop the postgres database"
   task :drop do
-    `dropdb beer`
+    `dropdb bestbeerwith`
   end
 
   # desc "fill the database"
   # task :seed do
-    
+
 end
